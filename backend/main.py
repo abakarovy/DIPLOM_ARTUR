@@ -15,8 +15,9 @@ app = FastAPI(docs_url=None, redoc_url=None, title="ARTUR HUESOS BACKEND")
 
 # Configure CORS
 origins = [
-    "http://localhost:3000",  # Next.js frontend
+    "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://diplom-artur.vercel.app",
 ]
 
 app.add_middleware(

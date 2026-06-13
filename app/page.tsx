@@ -7,6 +7,7 @@ import axios from "axios";
 import { Loader2 } from "lucide-react";
 
 const CODE_LENGTH = 6;
+const API_BASE_URL = "https://diplom-artur.onrender.com";
 
 export default function Home() {
   const router = useRouter();
@@ -22,8 +23,7 @@ export default function Home() {
     setIsLoading(true);
     setMessage("");
     try {
-      // In development, backend is on port 8000
-      await axios.post("http://localhost:8000/api/send-code", { email });
+      await axios.post(`${API_BASE_URL}/api/send-code`, { email });
       setStep("code");
       setMessage("Код отправлен на ваш email");
     } catch (error) {
@@ -69,7 +69,7 @@ export default function Home() {
     setIsLoading(true);
     setMessage("");
     try {
-      const response = await axios.post("http://localhost:8000/api/verify-code", {
+      const response = await axios.post(`${API_BASE_URL}/api/verify-code`, {
         email,
         code,
       });
